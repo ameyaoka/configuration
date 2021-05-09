@@ -1,13 +1,14 @@
 " this is my vimrc file"
 "set file stats
 set ruler
+set nu rnu 
 
 "searching
 set hlsearch "highlight search
 set showmatch 
 set ignorecase	"ignore case in search
 
-
+set background=dark 	" set background dark
 " highlight syntax
 syntax on
 
