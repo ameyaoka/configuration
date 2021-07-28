@@ -40,6 +40,23 @@ vnoremap <Left> <Nop>
 vnoremap <Right> <Nop>
 vnoremap <Up> <Nop>
 
+
+
+" remapping keys 
+
+" Press nn to return to normal mode when in insert mode
+inoremap jj <ESC>
+inoremap <ESC> <NOP>
+
+" Press jj to return to normal mode when in visual mode
+vnoremap jj <ESC>
+vnoremap <ESC> <NOP>
+
+" Press jj when in Command mode, to go back to normal mode
+cnoremap jj <ESC>
+
+
+
 " enable 156-color mode
 set t_CO=256
 
