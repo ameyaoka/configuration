@@ -64,6 +64,8 @@ set t_CO=256
 "show partial commands in last line of screen
 set showcmd 
 
+" switching between buffers"
+nnoremap <F5> :buffers<CR>:buffer<Space>
 
 set autoindent " copy indent form current line staring
 set smartindent " even better indent eg add indent after '{'
