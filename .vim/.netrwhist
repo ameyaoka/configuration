@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =8
+let g:netrw_dirhist_8='/home/ameya/programming/nand2tetris/nand2tetris/projects/04/mult'
+let g:netrw_dirhist_7='/home/ameya/programming/nand2tetris/nand2tetris/projects/04'
+let g:netrw_dirhist_6='/home/ameya/programming/nand2tetris/nand2tetris/projects/04/fill'
+let g:netrw_dirhist_5='/home/ameya/programming/nand2tetris/nand2tetris/projects/04/mult'
+let g:netrw_dirhist_4='/home/ameya/programming/nand2tetris/nand2tetris/projects/04'
+let g:netrw_dirhist_3='/home/ameya/programming/nand2tetris/nand2tetris/projects'
+let g:netrw_dirhist_2='/home/ameya/programming/nand2tetris/nand2tetris'
+let g:netrw_dirhist_1='/home/ameya/programming/nand2tetris'
