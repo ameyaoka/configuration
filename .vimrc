@@ -8,6 +8,8 @@ set hlsearch "highlight search
 set showmatch 
 set ignorecase	"ignore case in search
 
+colo murphy
+
 set background=dark 	" set background dark
 " highlight syntax
 syntax on
