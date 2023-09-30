@@ -13,7 +13,7 @@ colo murphy
 set background=dark 	" set background dark
 " highlight syntax
 syntax on
-
+colorscheme evening 
 
 
 "disable arrow keys"
@@ -85,3 +85,10 @@ set wildmenu  " shows list insted of completing
 set wildmode=list:longest,full " command <tab> completion
 set pastetoggle=<F4>	" toggle paste mode and avoid auto indent 
 set scrolloff=5 	" display 5 lines below cursor
+
+
+
+" run python from vim 
+autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+autocmd FileType python imap <buffer> <F9> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
+
