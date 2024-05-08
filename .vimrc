@@ -90,6 +90,11 @@ set scrolloff=5 	" display 5 lines below cursor
 
 set omnifunc=syntaxcomplete#Complete
 
+
+" Custom key mapping to copy Vim selection to xclip ( need to install xclip if not present )
+vnoremap <C-c> :w !xclip -selection clipboard<CR><CR>
+
+
 " run python from vim 
 autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 autocmd FileType python imap <buffer> <F9> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
@@ -109,6 +114,5 @@ inoremap [ []<Left>
 inoremap { {}<Left>
 inoremap " "" <left>
 inoremap ' '' <left>
-
 
 
