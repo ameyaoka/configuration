@@ -15,6 +15,9 @@ set background=dark 	" set background dark
 syntax on
 colorscheme evening 
 
+" Always display status line 
+
+set laststatus=2
 
 "disable arrow keys"
 
@@ -41,11 +44,6 @@ vnoremap <Down> <Nop>
 vnoremap <Left> <Nop>
 vnoremap <Right> <Nop>
 vnoremap <Up> <Nop>
-
-
-" copy text to computer clipboard  
-
-set clipboard=unnamedplus
 
 
 " remapping keys 
@@ -96,6 +94,14 @@ set omnifunc=syntaxcomplete#Complete
 autocmd FileType python map <buffer> <F9> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 autocmd FileType python imap <buffer> <F9> <esc>:w<CR>:exec '!python3' shellescape(@%, 1)<CR>
 
+" run java code in vim using F8 
+map <F8> :w<CR>:!javac % && java %:r<CR>
+
+" compile java code and create jar file for hadoop "    
+
+map <F7> :w<CR>:!javac -source 8 -target 8 -cp /home/ameya/c-dac/big_data/hadoop-common.jar:/home/ameya/c-dac/big_data/hadoop-mapreduce-client-core.jar % <CR>
+
+
 
 " automatically add closing brackets  and inverted comma 
 inoremap ( ()<Left>
@@ -103,3 +109,6 @@ inoremap [ []<Left>
 inoremap { {}<Left>
 inoremap " "" <left>
 inoremap ' '' <left>
+
+
+
