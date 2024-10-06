@@ -1,4 +1,5 @@
 " this is my vimrc file"
+
 "set file stats
 set ruler
 set nu rnu 
@@ -19,6 +20,7 @@ autocmd BufEnter * if &filetype == "" | setlocal ft=markdown | endif
 colo murphy
 
 set background=dark 	" set background dark
+
 " highlight syntax
 syntax on
 filetype on 
@@ -30,19 +32,23 @@ colorscheme evening
 
 set laststatus=2
 
+"display file name on status line"  
 set statusline=%f
+
 set statusline+=\ %h%w%m%r
 set statusline+=%=
 set statusline+=\ %P/%L
-set statusline+=\
+set statusline+=\ [%{mode()}]\ %y
+
+
 
 "disable arrow keys :  use h j k l instead "  
 
 " Remove newbie crutches in Command Mode
-cnoremap <Down> <Nop>
-cnoremap <Left> <Nop>
-cnoremap <Right> <Nop>
-cnoremap <Up> <Nop>
+""  cnoremap <Down> <Nop>
+"" cnoremap <Left> <Nop>
+"" cnoremap <Right> <Nop>
+"" cnoremap <Up> <Nop>
 
 " Remove newbie crutches in Insert Mode
 inoremap <Down> <Nop>
@@ -156,10 +162,13 @@ function! CompileAndRun()
         let l:command = 'g++ % -o %< && ./%<'
     elseif l:filetype == 'python'
         let l:command = 'python3 %'
+
     elseif l:filetype == 'java'
         let l:command = 'javac % && java %<'
+
     elseif l:filetype == 'sh'
         let l:command = 'bash %'
+
     elseif l:filetype == 'javascript'
 	" Open the file in the default web browser
 	let l:command = 'xdg-open %'
@@ -182,4 +191,3 @@ map <F8> :w<CR>:! streamlit run %<CR>
 
 " run flask    
 map <F6> :w<CR>:! flask run <CR>
-
