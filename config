@@ -183,12 +183,34 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
+
 bar {
         status_command i3status
+	tray_output primary
+
 }
 
- exec feh --bg-scale /home/ameya/Downloads/wallpaper_arch.png
- exec safeeyes 
+# wallpaper for arch linux
+exec feh --bg-scale /home/ameya/.config/i3/arch_wallpaper4.jpeg
+
+# execute safe eyes app 
+exec safeeyes 
+
+
+# execute corectrl app 
+# It controls power and cpu cycles
+exec  corectrl 
+
+exec anki 
+
+exec --no-startup-id konsole -e bash -c "task; bash" 
+# scratch pad for i3 wm 
+# scratch pad is just hidden window in tiled windows manager 
+
+bindsym $mod+Shift+H scratchpad show
+bindsym $mod+Shift+M move scratchpad
+
 
