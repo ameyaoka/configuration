@@ -121,9 +121,12 @@ set omnifunc=syntaxcomplete#Complete
 
 
 " Custom key mapping to copy Vim selection to xclip to past outside vim ( need to install xclip if not present )
+" vnoremap remaps keys ctrl c , y yanks visually selected text  into vim's default register 
+"" call system calls system function   to  send contents of default register to xclip 
 
-vnoremap <C-c> :w !xclip -selection clipboard<CR><CR>
+vnoremap <C-c> y:call system('xclip -selection clipboard', @")<CR>
 
+""
 " automatically add closing brackets  and inverted comma 
 inoremap ( ()<Left>
 inoremap [ []<Left>
@@ -143,8 +146,8 @@ set complete+=k~/.vim/keywords.txt
 
 
 " when pressed <F9> write compile and run file based on file type 
+"  Markdown files  also be seen using glow  
 
-"   
 nnoremap <F9> :call CompileAndRun()<CR>
 
 
@@ -172,9 +175,16 @@ function! CompileAndRun()
     elseif l:filetype == 'javascript'
 	" Open the file in the default web browser
 	let l:command = 'xdg-open %'
-    else
+	
+    elseif l:filetype == 'tex' 
+    	let l:command = "pdflatex % && okular %:r.pdf" 
+
+    elseif l:filetype == 'markdown' 
+    	let l:command = "glow %" 
+    els
         echo "No compile and run command defined for file type: " . l:filetype
         return
+	
     endif
 
     " Execute the command
@@ -182,9 +192,6 @@ function! CompileAndRun()
 endfunction
 
 
-" compile java code and create jar file for hadoop "    
-
-map <F7> :w<CR>:!javac -source 8 -target 8 -cp /home/ameya/c-dac/big_data/hadoop-common.jar:/home/ameya/c-dac/big_data/hadoop-mapreduce-client-core.jar % <CR> 
 
 " run streamilt   
 map <F8> :w<CR>:! streamlit run %<CR>
